@@ -28,7 +28,7 @@ class ChatList extends React.Component {
 	render() {
 		return (<div className="chatlist" ref={(container) => { this.container = container }}>
 			<Segment className='segment-chatlist'>
-				<Container>
+				<Container className='chatlist-head' onClick={this.onClickToggle.bind(this)} >
 					{this.renderBtnToggle()}
 				</Container>
 
@@ -42,7 +42,6 @@ class ChatList extends React.Component {
 
 	renderBtnToggle() {
 		return <Icon name={(this.state.isToggled) ? "angle down" : "angle up"}
-			onClick={this.onClickToggle.bind(this)}
 			size='large' />
 	}
 

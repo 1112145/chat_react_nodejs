@@ -2,14 +2,18 @@
     width: 250px;
     height: 350px;
     position: fixed;
+    transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s;
     bottom: 0;
     right: 10;
     .segment-chatlist {
         width: 100%;
         height: 100%;
         padding: 0px;
+        .chatlist-head{
+            height: 30px;
+            background-color: #00B5AD;
+        }
         .userlist {
-            margin-top: 10px;
             width: 100%;
             height: 250px;
             overflow-y: scroll;

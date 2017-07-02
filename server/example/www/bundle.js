@@ -10504,7 +10504,7 @@ var ChatList = function (_React$Component) {
 					{ className: 'segment-chatlist' },
 					_react2.default.createElement(
 						_semanticUiReact.Container,
-						null,
+						{ className: 'chatlist-head', onClick: this.onClickToggle.bind(this) },
 						this.renderBtnToggle()
 					),
 					_react2.default.createElement(
@@ -10520,7 +10520,6 @@ var ChatList = function (_React$Component) {
 		key: 'renderBtnToggle',
 		value: function renderBtnToggle() {
 			return _react2.default.createElement(_semanticUiReact.Icon, { name: this.state.isToggled ? "angle down" : "angle up",
-				onClick: this.onClickToggle.bind(this),
 				size: 'large' });
 		}
 	}, {
@@ -11448,7 +11447,7 @@ exports = module.exports = __webpack_require__(103)();
 
 
 // module
-exports.push([module.i, ".chatlist {\n  width: 250px;\n  height: 350px;\n  position: fixed;\n  bottom: 0;\n  right: 10; }\n  .chatlist .segment-chatlist {\n    width: 100%;\n    height: 100%;\n    padding: 0px; }\n    .chatlist .segment-chatlist .userlist {\n      margin-top: 10px;\n      width: 100%;\n      height: 250px;\n      overflow-y: scroll; }\n      .chatlist .segment-chatlist .userlist .listview .listview-item {\n        position: relative; }\n        .chatlist .segment-chatlist .userlist .listview .listview-item .dot {\n          position: absolute;\n          top: 0;\n          right: 0; }\n    .chatlist .segment-chatlist .search-user {\n      position: absolute;\n      bottom: 5px;\n      left: 5px;\n      right: 5px; }\n", ""]);
+exports.push([module.i, ".chatlist {\n  width: 250px;\n  height: 350px;\n  position: fixed;\n  transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s;\n  bottom: 0;\n  right: 10; }\n  .chatlist .segment-chatlist {\n    width: 100%;\n    height: 100%;\n    padding: 0px; }\n    .chatlist .segment-chatlist .chatlist-head {\n      height: 30px;\n      background-color: #00B5AD; }\n    .chatlist .segment-chatlist .userlist {\n      width: 100%;\n      height: 250px;\n      overflow-y: scroll; }\n      .chatlist .segment-chatlist .userlist .listview .listview-item {\n        position: relative; }\n        .chatlist .segment-chatlist .userlist .listview .listview-item .dot {\n          position: absolute;\n          top: 0;\n          right: 0; }\n    .chatlist .segment-chatlist .search-user {\n      position: absolute;\n      bottom: 5px;\n      left: 5px;\n      right: 5px; }\n", ""]);
 
 // exports
 
