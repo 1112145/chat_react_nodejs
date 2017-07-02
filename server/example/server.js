@@ -3,8 +3,7 @@ var chat = require('../index.js');
 
 var app = express();
 
-
-app.use(express.static('www'));
+app.use(express.static(__dirname + '/www'));
 
 
 app.get('/',(req, res)=>{

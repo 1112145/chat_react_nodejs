@@ -1,0 +1,34 @@
+.chatlist {
+    width: 250px;
+    height: 350px;
+    position: fixed;
+    bottom: 0;
+    right: 10;
+    .segment-chatlist {
+        width: 100%;
+        height: 100%;
+        padding: 0px;
+        .userlist {
+            margin-top: 10px;
+            width: 100%;
+            height: 250px;
+            overflow-y: scroll;
+            .listview {
+                .listview-item {
+                    position: relative;
+                    .dot {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                    }
+                }
+            }
+        }
+        .search-user {
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
+            right: 5px;
+        }
+    }
+}
