@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Segment, Input, Icon, Divider, List, Image } from 'semantic-ui-react';
+import _ from 'lodash';
+import { Container, Segment, Input, Icon, Divider, List, Image, Header } from 'semantic-ui-react';
 
 import style from './style.scss';
 
@@ -11,9 +12,12 @@ class ChatList extends React.Component {
 	constructor(props) {
 		super(props);
 
+		this.users = this.props.users || this.createDummyUser();
+
 		this.state = {
-			users: this.props.users || this.createDummyUser(),
-			isToggled: true
+			users: this.users,
+			isToggled: true,
+			isSearching: false
 		}
 	}
 
@@ -35,13 +39,15 @@ class ChatList extends React.Component {
 				<Container className='userlist'>
 					{this.renderUserList()}
 				</Container>
-				<Input className='search-user' icon='search' placeholder='Search' />
+				<Input className='search-user'
+					icon='search' placeholder='Search' loading={this.state.isSearching}
+					onChange={this.onSearch.bind(this)} />
 			</Segment>
 		</div>);
 	}
 
 	renderBtnToggle() {
-		return <Icon name={(this.state.isToggled) ? "angle down" : "angle up"}
+		return <Icon color='black' name={(this.state.isToggled) ? "angle down" : "angle up"}
 			size='large' />
 	}
 
@@ -66,6 +72,22 @@ class ChatList extends React.Component {
 	onClickToggle() {
 		this.setState({ isToggled: !this.state.isToggled });
 		this.container.style.bottom = (this.state.isToggled) ? "-320px" : "0px";
+	}
+
+	onSearch(event, data) {
+		this.setState({ isSearching: true, value: data.value });
+		setTimeout(() => {
+			if (this.state.value.length < 1) this.setState({ users: this.users });
+
+			const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
+			const isMatch = (result) => re.test(result.name)
+
+			this.setState({
+				isSearching: false,
+				users: _.filter(this.users,isMatch)
+			});
+
+		}, 500);
 	}
 
 }
