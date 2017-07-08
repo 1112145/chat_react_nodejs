@@ -17,7 +17,13 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                loaders: ["style-loader", "css-loader", "sass-loader"]
+                loaders: ["style-loader", "css-loader", {
+                    loader: "sass-loader",
+                    options: {
+                        data: '@import "theme";',
+                        includePaths: [path.join(__dirname, 'src')]
+                    }
+                }]
             },
             {
                 test: /\.(js|jsx)$/,
@@ -28,7 +34,7 @@ module.exports = {
                     plugins: []
                 }
             }
-        
+
         ],
     },
     resolve: {

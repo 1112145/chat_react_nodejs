@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 
-import ChatUI from  '../index.js';
+import Chat from  '../index.js';
 
 
-render(<ChatUI/>, document.getElementById('root'));
+render(<Chat/>, document.getElementById('root'));

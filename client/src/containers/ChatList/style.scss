@@ -1,40 +1,81 @@
-.chatlist {
-    width: 250px;
-    height: 350px;
-    position: fixed;
-    transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s;
-    bottom: 0px;
-    right: 10px;
-    .segment-chatlist {
-        width: 250px;
+@media #{$mobile}{
+    .chatlist {
+        width: 100%;
         height: 100%;
-        padding: 0px;
-        .chatlist-head {
-            margin: 0px;
-            height: 30px;
-            width: 250px;
-            background-color: #00B5AD;
-        }
-        .userlist {
-            width: 250px;
-            height: 250px;
+        position: fixed;
+        bottom: 0px;
+        background-color: rgba(black,0.5);
+        .segment-chatlist {
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            height: 95%;
             overflow-y: scroll;
-            .listview {
-                .listview-item {
-                    position: relative;
-                    .dot {
-                        position: absolute;
-                        top: 0;
-                        right: 0;
+            .chatlist-head {
+                display: none;
+            }
+            .userlist {
+                .listview {
+                    .listview-item {
+                        position: relative;
+                        .dot {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                        }
                     }
                 }
             }
+            .search-user {
+                width: 80%;
+                position: fixed;
+                bottom: 5px;
+                left: 50%;
+                transform: translateX(-50%)
+            }
         }
-        .search-user {
-            position: absolute;
-            bottom: 5px;
-            left: 5px;
-            right: 5px;
+    }
+}
+
+@media #{$large-desktop},#{$tablet},#{$desktop} {
+    .chatlist {
+        width: 250px;
+        height: 350px;
+        position: fixed;
+        transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s;
+        bottom: 0px;
+        right: 10px;
+        .segment-chatlist {
+            width: 250px;
+            height: 100%;
+            padding: 0px;
+            .chatlist-head {
+                margin: 0px;
+                height: 30px;
+                width: 250px;
+                background-color: #00B5AD;
+            }
+            .userlist {
+                width: 250px;
+                height: 250px;
+                overflow-y: scroll;
+                .listview {
+                    .listview-item {
+                        position: relative;
+                        .dot {
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                        }
+                    }
+                }
+            }
+            .search-user {
+                position: absolute;
+                bottom: 5px;
+                left: 5px;
+                right: 5px;
+            }
         }
     }
 }

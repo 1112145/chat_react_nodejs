@@ -27171,7 +27171,7 @@ var ChatList = function (_React$Component) {
 			}
 			return _react2.default.createElement(
 				_semanticUiReact.List,
-				{ className: 'listview', divided: true, verticalAlign: 'middle' },
+				{ className: 'listview', selection: true, divided: true, verticalAlign: 'middle' },
 				items
 			);
 		}
@@ -29106,7 +29106,7 @@ exports = module.exports = __webpack_require__(495)();
 
 
 // module
-exports.push([module.i, ".chatlist {\n  width: 250px;\n  height: 350px;\n  position: fixed;\n  transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s;\n  bottom: 0px;\n  right: 10px; }\n  .chatlist .segment-chatlist {\n    width: 250px;\n    height: 100%;\n    padding: 0px; }\n    .chatlist .segment-chatlist .chatlist-head {\n      margin: 0px;\n      height: 30px;\n      width: 250px;\n      background-color: #00B5AD; }\n    .chatlist .segment-chatlist .userlist {\n      width: 250px;\n      height: 250px;\n      overflow-y: scroll; }\n      .chatlist .segment-chatlist .userlist .listview .listview-item {\n        position: relative; }\n        .chatlist .segment-chatlist .userlist .listview .listview-item .dot {\n          position: absolute;\n          top: 0;\n          right: 0; }\n    .chatlist .segment-chatlist .search-user {\n      position: absolute;\n      bottom: 5px;\n      left: 5px;\n      right: 5px; }\n", ""]);
+exports.push([module.i, ".center {\n  position: relative;\n  left: 50%;\n  transform: translateX(-50%); }\n\n.wrap {\n  width: 100%;\n  height: 100%; }\n\n@media (min-width: 319px) and (max-width: 767px) {\n  .chatlist {\n    width: 100%;\n    height: 100%;\n    position: fixed;\n    bottom: 0px;\n    background-color: rgba(0, 0, 0, 0.5); }\n    .chatlist .segment-chatlist {\n      position: absolute;\n      bottom: 0px;\n      width: 100%;\n      height: 95%;\n      overflow-y: scroll; }\n      .chatlist .segment-chatlist .chatlist-head {\n        display: none; }\n      .chatlist .segment-chatlist .userlist .listview .listview-item {\n        position: relative; }\n        .chatlist .segment-chatlist .userlist .listview .listview-item .dot {\n          position: absolute;\n          top: 0;\n          right: 0; }\n      .chatlist .segment-chatlist .search-user {\n        width: 80%;\n        position: fixed;\n        bottom: 5px;\n        left: 50%;\n        transform: translateX(-50%); } }\n\n@media (min-width: 1200px), (min-width: 768px) and (max-width: 991px), (min-width: 992px) and (max-width: 1199px) {\n  .chatlist {\n    width: 250px;\n    height: 350px;\n    position: fixed;\n    transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s;\n    bottom: 0px;\n    right: 10px; }\n    .chatlist .segment-chatlist {\n      width: 250px;\n      height: 100%;\n      padding: 0px; }\n      .chatlist .segment-chatlist .chatlist-head {\n        margin: 0px;\n        height: 30px;\n        width: 250px;\n        background-color: #00B5AD; }\n      .chatlist .segment-chatlist .userlist {\n        width: 250px;\n        height: 250px;\n        overflow-y: scroll; }\n        .chatlist .segment-chatlist .userlist .listview .listview-item {\n          position: relative; }\n          .chatlist .segment-chatlist .userlist .listview .listview-item .dot {\n            position: absolute;\n            top: 0;\n            right: 0; }\n      .chatlist .segment-chatlist .search-user {\n        position: absolute;\n        bottom: 5px;\n        left: 5px;\n        right: 5px; } }\n", ""]);
 
 // exports
 
@@ -77076,8 +77076,8 @@ if(content.locals) module.exports = content.locals;
 if(false) {
 	// When the styles change, update the <style> tags
 	if(!content.locals) {
-		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/index.js!./style.scss", function() {
-			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/index.js!./style.scss");
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/index.js??ref--1-2!./style.scss", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/index.js??ref--1-2!./style.scss");
 			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
 			update(newContent);
 		});

@@ -35,7 +35,6 @@ class ChatList extends React.Component {
 				<div className='chatlist-head' onClick={this.onClickToggle.bind(this)} >
 					{this.renderBtnToggle()}
 				</div>
-
 				<div className='userlist'>
 					{this.renderUserList()}
 				</div>
@@ -61,7 +60,7 @@ class ChatList extends React.Component {
 			</List.Item>
 			items.push(item);
 		}
-		return <List className='listview' divided verticalAlign='middle'>{items}</List>
+		return <List className='listview' selection divided verticalAlign='middle'>{items}</List>
 	}
 
 
