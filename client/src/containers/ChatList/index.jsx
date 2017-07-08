@@ -32,13 +32,13 @@ class ChatList extends React.Component {
 	render() {
 		return (<div className="chatlist" ref={(container) => { this.container = container }}>
 			<Segment className='segment-chatlist'>
-				<Container className='chatlist-head' onClick={this.onClickToggle.bind(this)} >
+				<div className='chatlist-head' onClick={this.onClickToggle.bind(this)} >
 					{this.renderBtnToggle()}
-				</Container>
+				</div>
 
-				<Container className='userlist'>
+				<div className='userlist'>
 					{this.renderUserList()}
-				</Container>
+				</div>
 				<Input className='search-user'
 					icon='search' placeholder='Search' loading={this.state.isSearching}
 					onChange={this.onSearch.bind(this)} />
@@ -61,7 +61,7 @@ class ChatList extends React.Component {
 			</List.Item>
 			items.push(item);
 		}
-		return <List className='listview' animated divided verticalAlign='middle'>{items}</List>
+		return <List className='listview' divided verticalAlign='middle'>{items}</List>
 	}
 
 

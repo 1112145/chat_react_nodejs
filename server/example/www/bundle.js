@@ -27134,12 +27134,12 @@ var ChatList = function (_React$Component) {
 					_semanticUiReact.Segment,
 					{ className: 'segment-chatlist' },
 					_react2.default.createElement(
-						_semanticUiReact.Container,
+						'div',
 						{ className: 'chatlist-head', onClick: this.onClickToggle.bind(this) },
 						this.renderBtnToggle()
 					),
 					_react2.default.createElement(
-						_semanticUiReact.Container,
+						'div',
 						{ className: 'userlist' },
 						this.renderUserList()
 					),
@@ -27171,7 +27171,7 @@ var ChatList = function (_React$Component) {
 			}
 			return _react2.default.createElement(
 				_semanticUiReact.List,
-				{ className: 'listview', animated: true, divided: true, verticalAlign: 'middle' },
+				{ className: 'listview', divided: true, verticalAlign: 'middle' },
 				items
 			);
 		}
@@ -29106,7 +29106,7 @@ exports = module.exports = __webpack_require__(495)();
 
 
 // module
-exports.push([module.i, ".chatlist {\n  width: 250px;\n  height: 350px;\n  position: fixed;\n  transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s;\n  bottom: 0;\n  right: 10; }\n  .chatlist .segment-chatlist {\n    width: 100%;\n    height: 100%;\n    padding: 0px; }\n    .chatlist .segment-chatlist .chatlist-head {\n      height: 30px;\n      background-color: #00B5AD; }\n    .chatlist .segment-chatlist .userlist {\n      width: 100%;\n      height: 250px;\n      overflow-y: scroll; }\n      .chatlist .segment-chatlist .userlist .listview .listview-item {\n        position: relative; }\n        .chatlist .segment-chatlist .userlist .listview .listview-item .dot {\n          position: absolute;\n          top: 0;\n          right: 0; }\n    .chatlist .segment-chatlist .search-user {\n      position: absolute;\n      bottom: 5px;\n      left: 5px;\n      right: 5px; }\n", ""]);
+exports.push([module.i, ".chatlist {\n  width: 250px;\n  height: 350px;\n  position: fixed;\n  transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s;\n  bottom: 0px;\n  right: 10px; }\n  .chatlist .segment-chatlist {\n    width: 250px;\n    height: 100%;\n    padding: 0px; }\n    .chatlist .segment-chatlist .chatlist-head {\n      margin: 0px;\n      height: 30px;\n      width: 250px;\n      background-color: #00B5AD; }\n    .chatlist .segment-chatlist .userlist {\n      width: 250px;\n      height: 250px;\n      overflow-y: scroll; }\n      .chatlist .segment-chatlist .userlist .listview .listview-item {\n        position: relative; }\n        .chatlist .segment-chatlist .userlist .listview .listview-item .dot {\n          position: absolute;\n          top: 0;\n          right: 0; }\n    .chatlist .segment-chatlist .search-user {\n      position: absolute;\n      bottom: 5px;\n      left: 5px;\n      right: 5px; }\n", ""]);
 
 // exports
 
