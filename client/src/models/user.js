@@ -1,8 +1,12 @@
+function User(id='1',name='User',avatar='') {
+    return {
+        id: id,
+        name: name,
+        avatar: avatar
+    };
+}
 
-export default {
-    id: '1',
-    token: 'XFHSPSFJSEDF',
-    role: '',
-    name: '',
-    avatar: ''
-};
+
+export default User;
+
+

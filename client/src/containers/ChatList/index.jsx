@@ -2,6 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import { Container, Segment, Input, Icon, Divider, List, Image, Header } from 'semantic-ui-react';
 
+
 import style from './style.scss';
 
 
@@ -12,10 +13,8 @@ class ChatList extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.users = this.props.users || this.createDummyUser();
 
 		this.state = {
-			users: this.users,
 			isToggled: true,
 			isSearching: false
 		}
@@ -52,10 +51,11 @@ class ChatList extends React.Component {
 
 	renderUserList() {
 		var items = [];
-		for (var i = 0; i < this.state.users.length; i++) {
-			var item = <List.Item key={i} className='listview-item' onClick={this.onUserListItemClick.bind(this, this.state.users[i])}>
-				<Image src='https://image.flaticon.com/icons/svg/145/145867.svg' avatar />
-				{this.state.users[i].name}
+		this.users = this.props.users || this.createDummyUser();
+		for (var i = 0; i < this.users.length; i++) {
+			var item = <List.Item key={i} className='listview-item' onClick={this.onUserListItemClick.bind(this, this.users[i])}>
+				<Image src={this.users[i].avatar||'https://image.flaticon.com/icons/svg/145/145867.svg'} avatar />
+				{"  " + this.users[i].name}
 				<Icon className='dot' name='circle' color='green'></Icon>
 			</List.Item>
 			items.push(item);
@@ -65,6 +65,9 @@ class ChatList extends React.Component {
 
 
 	onUserListItemClick(data) {
+		if (this.props.onSelectRecipient) {
+			this.props.onSelectRecipient.call(this, data);
+		}
 	}
 
 
@@ -83,7 +86,7 @@ class ChatList extends React.Component {
 
 			this.setState({
 				isSearching: false,
-				users: _.filter(this.users,isMatch)
+				users: _.filter(this.users, isMatch)
 			});
 
 		}, 500);
