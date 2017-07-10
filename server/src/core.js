@@ -29,15 +29,20 @@ function onConnection(socket) {
     socket.on(ONLINE_USERS, onOnlineUsers);
     socket.on(MARK_AS_READ, onMarkAsRead);
     socket.on(USER_TYPING, onUserTyping);
-    socket.on(DISCONNECT, onDisconnect);
+    socket.on(DISCONNECT, function () {
+        console.log('An user has been disconnected!');
+        removeSocket(socket);
+        broadcastOnlineUserList();
+
+    });
 }
 
 function sayHelloServerFrom(socket) {
     socket.on(WHO, function (user) {
-        console.log('Hello server!');
-        var index = _.findIndex(userSockets, (el) => { return el.user.id == user.id });
+        console.log('Hello server! I am ' + user.name);
+        socket.user = user;
+        var index = _.findIndex(userSockets, (el) => { return (el.user) ? (el.user.id == user.id) : false });
         if (index == -1) {
-            socket.user = user;
             userSockets.push(socket);
         }
         else {
@@ -45,23 +50,14 @@ function sayHelloServerFrom(socket) {
             userSockets[index] = socket;
             temp.disconnect(true);
         }
-        sendOnlineUserListTo(socket);
+        broadcastOnlineUserList();
     })
 }
 
 
 
 
-function onDisconnect(socket) {
-    console.log('An user has been disconnected!');
-    var index = _.findIndex(userSockets, function (sk) {
-        return sk.id == socket.id
-    });
 
-    if (index != -1) {
-        userSockets.splice(index, 1);
-    }
-}
 
 function onMessage(message) {
     var targetSocket = getSocketByUserId(message.receiver.id);
@@ -96,12 +92,24 @@ function sendHistoryTo(targetSocket, history) {
 
 }
 
-function sendOnlineUserListTo(targetSocket) {
-    targetSocket.emit(ONLINE_USERS, _.map(userSockets, (e) => { return e.user }));
+function broadcastOnlineUserList() {
+    var userList = _.map(userSockets, (e) => { return e.user });
+    userSockets.forEach((socket) => { socket.emit(ONLINE_USERS, userList) });
 }
 
 function sendTypingUserTo(targetSocket, typingUserId) {
 
+}
+
+// Internal
+function removeSocket(socket) {
+    var index = _.findIndex(userSockets, function (sk) {
+        return sk.id == socket.id
+    });
+
+    if (index != -1) {
+        userSockets.splice(index, 1);
+    }
 }
 
 

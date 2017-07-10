@@ -45,7 +45,7 @@ class DemoUsingChat extends React.Component {
     }
 
     renderChat() {
-        return <Chat owner={this.state.me} />;
+        return <Chat owner={this.state.me} onDisconnect={()=>{this.setState({isReadyToChat: false});}}/>;
     }
 
     renderButtonGroup() {

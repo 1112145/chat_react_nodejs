@@ -19,17 +19,9 @@ class ChatApp extends React.Component {
 
 	componentWillMount() {
 		this.socket = io.connect();
-		this.socket.on('connect', function(){
-			this.socket.emit('who',this.props.owner);
-		}.bind(this));
-		this.socket.on('connecting', function(){
-			console.log('connecting!');
-		});
-		this.socket.on('disconnect', function(){
-			console.log('disconnected!');
-		})
+		this.socket.on('connect', this.onConnect.bind(this));
+		this.socket.on('disconnect', this.onDisconnect.bind(this));
 		this.socket.on('online_users', function(users){
-			console.log(users);
 			this.setState({recipients: users});
 		}.bind(this))
 	}
@@ -38,6 +30,16 @@ class ChatApp extends React.Component {
 		return <Container>
 				<ChatList users ={this.state.recipients} onSelectRecipient={this.onSelectRecipient.bind(this)} />
 			</Container>
+	}
+
+	onConnect(){
+		this.socket.emit('who',this.props.owner);
+		if(this.props.onConnect) this.props.onConnect.call(this);
+	}
+
+	onDisconnect(){
+		console.log('disconnected!');
+		if(this.props.onDisconnect) this.props.onDisconnect.call(this);
 	}
 
 	onSelectRecipient(recipient){
